@@ -402,7 +402,7 @@ let MetronomeComponent = /*#__PURE__*/(() => {
       // in response to a user event (in safari anyway)
       this.instruments = [new SynthInstrument(this.panner), new DrumSamplerInstrument(this.panner), new My808SamplerInstrument(this.panner), new DmxSamplerInstrument(this.panner)];
       this.instrument = this.instruments[0];
-      this.minBpm = 60;
+      this.minBpm = 20;
       this.maxBpm = 240;
       this.taps = [];
       this.is2xActive = false;
@@ -512,7 +512,7 @@ let MetronomeComponent = /*#__PURE__*/(() => {
       }
     }
     isLegalBpm(bpm) {
-      return !Number.isNaN(bpm) && bpm > this.minBpm && bpm < this.maxBpm;
+      return !Number.isNaN(bpm) && bpm > -this.minBpm && bpm <= this.maxBpm;
     }
     onTempoTap() {
       while (this.taps.length > 1) this.taps.shift();
@@ -638,7 +638,7 @@ let MetronomeComponent = /*#__PURE__*/(() => {
       }
     },
     dependencies: [_angular_common__WEBPACK_IMPORTED_MODULE_4__.NgClass, _angular_common__WEBPACK_IMPORTED_MODULE_4__.NgForOf, _angular_common__WEBPACK_IMPORTED_MODULE_4__.NgIf, _angular_forms__WEBPACK_IMPORTED_MODULE_3__.NgSelectOption, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["ɵNgSelectMultipleOption"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__.DefaultValueAccessor, _angular_forms__WEBPACK_IMPORTED_MODULE_3__.NumberValueAccessor, _angular_forms__WEBPACK_IMPORTED_MODULE_3__.SelectControlValueAccessor, _angular_forms__WEBPACK_IMPORTED_MODULE_3__.NgControlStatus, _angular_forms__WEBPACK_IMPORTED_MODULE_3__.PatternValidator, _angular_forms__WEBPACK_IMPORTED_MODULE_3__.MinValidator, _angular_forms__WEBPACK_IMPORTED_MODULE_3__.MaxValidator, _angular_forms__WEBPACK_IMPORTED_MODULE_3__.FormControlDirective, _angular_common__WEBPACK_IMPORTED_MODULE_4__.DecimalPipe],
-    styles: [".perspective[_ngcontent-%COMP%] {\n  transform: perspective(75em) rotateX(12deg) scale(0.8) translateY(-22%);\n}\n.perspective[_ngcontent-%COMP%]    > *[_ngcontent-%COMP%] {\n  width: 85% !important;\n}\n\n@keyframes _ngcontent-%COMP%_rotateAnimation {\n  from {\n    transform: rotateX(18deg) perspective(75em);\n  }\n  to {\n    transform: rotateX(18deg) perspective(75em);\n  }\n}\ninput[_ngcontent-%COMP%]::-webkit-slider-thumb {\n  -webkit-appearance: none;\n  background-color: white;\n}\n\ninput[_ngcontent-%COMP%]::-webkit-slider-runnable-track {\n  background-color: #313131;\n}"]
+    styles: [".perspective[_ngcontent-%COMP%] {\n  transform: perspective(0) rotateX(0) scale(0.8) translateY(-10%);\n}\n.perspective[_ngcontent-%COMP%]    > *[_ngcontent-%COMP%] {\n  width: 85% !important;\n}\n\n@keyframes _ngcontent-%COMP%_rotateAnimation {\n  from {\n    transform: rotateX(18deg) perspective(75em);\n  }\n  to {\n    transform: rotateX(18deg) perspective(75em);\n  }\n}\ninput[_ngcontent-%COMP%]::-webkit-slider-thumb {\n  -webkit-appearance: none;\n  background-color: white;\n}\n\ninput[_ngcontent-%COMP%]::-webkit-slider-runnable-track {\n  background-color: #313131;\n}"]
   });
   return MetronomeComponent;
 })();

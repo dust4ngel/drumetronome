@@ -24,7 +24,6 @@ app-root {
 }
 app-root > .container {
   background-color: #111 !important;
-  aspect-ratio: 4/5;
   /* https://stackoverflow.com/questions/46548987/a-grid-layout-with-responsive-squares */
 }
 app-root > .container:before {
