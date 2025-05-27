@@ -359,7 +359,7 @@ let MetronomeComponent = /*#__PURE__*/(() => {
       /** the sequence of midi-like events */
       this.seq = Array.from(Array(20), (_, x) => ({
         on: x % 4 === 0,
-        voice: x === 0 ? 2 : 1
+        voice: x === 0 ? 2 : x === 8 ? 1 : 0
       }));
       this.timings = [{
         signature: [3, 4],
@@ -458,6 +458,7 @@ let MetronomeComponent = /*#__PURE__*/(() => {
         isActive: false
       });
       tone__WEBPACK_IMPORTED_MODULE_1__.Transport.loop = true;
+      console.log(this.seq);
       for (let i = 0; i < 20; i++) tone__WEBPACK_IMPORTED_MODULE_1__.Transport.schedule(time => {
         let node = this.seq[i] ?? {
           on: false,
@@ -470,7 +471,7 @@ let MetronomeComponent = /*#__PURE__*/(() => {
           });
         } else {
           if (this.subdivisionsCtrl.value.modulo && i % this.subdivisionsCtrl.value.modulo == 0) this.instrument.play({
-            voice: 0
+            voice: node.voice
           });
         }
         // update the UI:
